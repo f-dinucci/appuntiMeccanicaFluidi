@@ -1,0 +1,53 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+ \section{Fattore di correzione per l'energia meccanica}
+Finora si è supposto che nei casi di ingressi e uscite concentrati velocità e pressione fossero costanti, si vedrà ora che succede nel caso in cui la velocità abbia un profilo noto, non costante.
+A differenza del fattore di correzione per la quantità di moto, nella quale si hanno integrali legati a $u^2$, si avranno integrali di questo tipo, nei quali occorre introdurre \textit{un altro} fattore di correzione:
+%
+	\begin{equation*}
+		 \int u^3 \dd{S} = \beta {\bar{u}}^3
+	\end{equation*}
+%
+Il fattore di correzione dipende ovviamente dal profilo di velocità.
+
+%SUBSECTION
+\subsection{Caso piano laminare}
+Nel caso piano laminare si può supporre un profilo di velocità parabolico:
+%
+	\begin{equation*}
+		\begin{gathered}
+			u = y (h-y)\\
+			\int_0^h u^3 \dd{y} = \int_0^h {\left[ u = y (h-y) \right]}^3 \dd{y}= \frac{h^7}{140}
+		\end{gathered}
+	\end{equation*}
+%			
+La velocità media è invece calcolabile come i 2/3 della velocità massima (che si ha al centro del profilo, ad h/2):
+%
+	\begin{equation*}
+		\begin{gathered}			
+			{\bar{u}}^3 = \left( \frac{h^2}{6} \right) h = \frac{h^7}{216}\\
+			\beta = \frac{54}{33}
+		\end{gathered}
+	\end{equation*}
+%
+
+%SUBSECTION
+\subsection{Caso cilindrico turbolento}
+Nel caso turbolento invece:
+%
+	\begin{equation*}
+		\begin{gathered}
+			u = y^{1/7}\\
+			y = R - r\\
+			\int_0^R u^3 2 \pi r \dd{r} = \frac{96 \pi R^{17/7}}{170}\\
+			\bar{u} = \frac{2 \pi}{\pi R^2} \int_0^R y^{1/7} (R-y) \dd{y} = \frac{49}{60} R^{1/7}\\
+			\beta = \frac{43200}{40817} \quad \text{circa 1.06}
+		\end{gathered}
+	\end{equation*}
+%
+
+\subsection*{Bibliografia 4.3}
+\cite[Cap.\ 5.4]{CengelCimbala}\\
+\cite[Cap.\ 7.4]{PnueliGutfinger}

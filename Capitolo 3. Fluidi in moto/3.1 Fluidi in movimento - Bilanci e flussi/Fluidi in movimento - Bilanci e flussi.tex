@@ -1,0 +1,271 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+\section{Fluidi in movimento - Bilanci e flussi}
+Si vedranno, dopo un breve richiamo del caso statico, le equazioni di bilancio ed i flussi nel caso di fluidi in movimento, particolarizzate poi nel caso di approssimazione di ingressi ed uscite concentrati.
+
+%SUBSECTION
+\subsection{Richiamo caso statico}
+Finora si è visto che per una generica proprietà $f$ si ha l'equazione di conservazione:
+%
+	\begin{equation*}
+		\dv{t} \int f \dd{V} + \oint \uline{J}_f \vdot \uline{n} \dd{S} = 0
+	\end{equation*} 
+%
+Questa è stata particolarizzata nei tre casi (massa, energia, quantità di moto). 
+
+Per passare a dei sistemi di equazioni con numero di equazioni uguale al numero di incognite (5 considerando l'equazione dell'energia, 4 se è disaccoppiata dalle altre) è stato necessario ricondurre i flussi a funzioni delle proprietà del fluido:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{J}_M = \uline{J}_M (\rho, e, \uline{q}) \\
+			\uline{J}_e = \uline{J}_e (\rho, e, \uline{q}) \\
+			\uuline{J}_Q = \uuline{J}_Q (\rho, e, \uline{q}) 
+		\end{gathered}
+	\end{equation*}
+%
+
+Una volta definita la velocità come $\uline{v} = \frac{\uline{q}}{\rho}$ queste funzioni sono state caratterizzate per un fluido fermo $(\uline{v} = 0)$, da cui segue che, dato che non vi sono direzioni privilegiate:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{J}_M = 0 \\
+			\uline{J}_e = 0 \\
+			\uuline{J}_Q = p \uuline{I} 
+		\end{gathered}
+	\end{equation*}
+%
+L'equazione dell'energia anche per i fluidi in moto sarà trascurata\footnote{servirebbe nel calcolo delle temperature, ma si tratteranno solamente casi nei quali se ne può fare a meno} dato che si è nel caso di fluido incomprimibile ($\rho = cost$ anche se il fluido è sottoposto a pressioni. In generale questo vale ogni qual volta le pressioni siano sufficientemente piccole da non creare variazioni di densità), quindi l'equazione dell'energia è disaccoppiata dalle altre. 
+Questo capita anche nel raro caso in cui la densità sia variabile ma funzione solamente della pressione e non di pressione e temperatura.
+
+%SUBSECTION
+\subsection{Ipotesi di equilibrio termodinamico locale}
+Quando un fluido è fermo e isolato da grandezze che ne possano variare lo stato per un sufficiente lasso di tempo, raggiunge l'equilibrio termodinamico: ha le stesse proprietà in tutti i punti e valgono le leggi termodinamiche viste in altri corsi.
+
+Nel caso di un fluido in un moto sufficientemente lento, cioè dove le variazioni delle proprietà siano relativamente lente su scala microscopica\footnote{che può anche essere velocemente su scala macroscopica}, si suppone che in un piccolo intorno di un punto si raggiunga l'equilibrio termodinamico, cioè la distribuzione di probabilità delle proprietà del fluido \textit{nell'intorno di quel punto} è vicina a quella che ci sarebbe se il fluido avesse ovunque le proprietà di quel punto. 
+
+Questa è l'ipotesi di \textbf{equilibrio termodinamico locale}, che permette di considerare i flussi funzioni puntuali delle proprietà del fluido (cosa che non avviene ad esempio nei casi di quasi-equilibrio).
+Non è un'ipotesi banale perché le proprietà dei fluidi sono dei campi\footnote{variano da un punto all'altro nello spazio}, i flussi potrebbero quindi essere funzioni di più (o di tutti i) punti.
+
+%SUBSECTION
+\subsection{Equazioni di bilancio in sistemi di riferimento mobili}
+A livello molecolare i fluidi sono differenti, ma hanno a livello macroscopico dei comportamenti simili dovuti a leggi fisiche generali, si è vista ad esempio la simmetria rispetto alla rotazione.
+Per portare le leggi di conservazione in un sistema di riferimento mobile ed esplicitare l'espressione dei flussi si sfrutta invece la simmetria rispetto ad un cambio di sistema di riferimento (le leggi fisiche sono le stesse in tutti i sistemi inerziali).
+Ricordando che per un sistema di riferimento inerziale, cioè che che si muove a velocità fissa e costante:
+%
+	\begin{equation*}
+		\left\{ 
+			\begin{gathered}
+				\uline{x} = \uline{x} (\uline{x'}, t') = x' + \uline{v}_0 t'\\
+				t = t'
+			\end{gathered}
+		\right.
+	\end{equation*}
+%
+Nelle equazioni di cui sopra $v_0$ rappresenta la velocità di un sistema rispetto all'altro e la ridenominazione del tempo avviene solo per chiarezza di notazione.
+Occorre capire cosa succede se si muove il volume nel tempo:
+	\begin{equation*}
+		\dv{t} \int_{V(t)} f \dd{V} = ?
+	\end{equation*}
+Per questo si utilizzano la formula di Leibnitz e il teorema del trasporto di Reynolds, che si suggerisce di consultare dalla cassetta degli attrezzi.
+
+%SUBSUBSECTION
+\subsubsection{Equazione di bilancio per la massa}
+Nel caso particolare di un sistema di riferimento inerziale:
+%
+	\begin{equation*}
+		\uline{x} = \uline{x}' + \uline{v}_0 t \Rightarrow \uline{v}_b = \uline{v}_0 = costante 
+	\end{equation*}
+%
+Si prende poi l'equazione di conservazione della massa per un volume di controllo $V$ fermo:
+%
+	\begin{equation*}
+		\dv{t} \int_V \rho \dd{V} + \oint \uline{J}_M \vdot \uline{n} \dd{S} = 0
+	\end{equation*}
+%
+Dato che il volume è fermo si può spostare l'operazione di derivazione:
+%
+	\begin{equation*}
+		\int_V \pdv{\rho}{t} \dd{V} + \oint \uline{J}_M \vdot \uline{n} \dd{S} = 0 \Rightarrow \int_V \pdv{\rho}{t} \dd{V} = - \oint \uline{J}_M \vdot \uline{n} \dd{S}
+	\end{equation*}
+%
+Nel caso di un sistema mobile, applicando il teorema del trasporto di Reynolds, si ha che (ricordando che la $\uline{v}_b$ è riferita al contorno del volume di controllo arbitrario, non al fluido):
+%
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int_{V(t)} \rho \dd{V} = \int_V \pdv{\rho}{t} \dd{V} + \oint \rho \uline{v}_b \vdot \uline{n} \dd{S} \\
+			\text{che sostituendo quanto visto prima diventa} \\
+			\dv{t} \int_{V(t)} \rho \dd{V} =  - \oint \uline{J}_M \vdot \uline{n} \dd{S} + \oint \rho \uline{v}_b \vdot \uline{n} \dd{S}\\
+			\text{quindi} \\
+			\dv{t} \int_{V(t)} \rho \dd{V} + \oint (\uline{J}_M - \rho \uline{v}_b) \vdot \uline{n} \dd{S} = 0
+		\end{gathered}
+	\end{equation*}
+%
+L'espressione che si è ricavata vale in generale per un volume mobile e con $v_b$ variabile (ma in questo caso è costante).
+
+Dato che il sistema di riferimento mobile è anch'esso inerziale e che le leggi della fisica sono le medesime in tutti i sistemi inerziali, si può scrivere l'equazione di conservazione nel volume $V'$:
+%
+	\begin{equation*}
+		\dv{t} \int_{V'} \rho \dd{V'} + \oint \uline{J'}_M \vdot \uline{n} \dd{S} = 0
+	\end{equation*}
+%
+Si hanno quindi due equazioni di conservazione della massa, che devono valere contemporaneamente per qualsiasi volume:
+%
+	\begin{equation*}
+		\begin{gathered}
+		\left\{
+			\begin{aligned}
+				\dv{t} \int_{V(t)} \rho \dd{V} + \oint (\uline{J}_M - \rho \uline{v}_b) \vdot \uline{n} \dd{S} = 0\\
+				\dv{t} \int_{V'} \rho \dd{V'} + \oint \uline{J'}_M \vdot \uline{n} \dd{S} = 0
+			\end{aligned}
+		\right.
+		\end{gathered}
+	\end{equation*}
+%
+Da cui dato che $v_b = v_0$,:
+%
+	\begin{equation*}
+		\uline{J'}_M = \uline{J}_M - \rho v_0 \quad \textit{Legge cambiamento s.r.}
+	\end{equation*}
+%
+Quindi $\uline{J}_M$ non può essere qualsiasi: quando $v$ cambia come $\uline{v} = \uline{v'} + \uline{v}_0$, dato che si è in un sistema inerziale ($\uline{x} = \uline{x'} + \uline{v}_0 t$), allora:
+%
+	\begin{equation*}
+		\uline{J}_M = \uline{J'}_M + \rho \uline{v}_0
+	\end{equation*}
+%
+Si può poi esplicitare il flusso di massa.
+Innanzitutto si suppone che il flusso di massa $\uline{J}_M$ dipenda dalla velocità del fluido in un solo punto.
+Si ipotizza cioè che i flussi siano funzioni puntuali delle proprietà del fluido, per via dell'ipotesi di equilibrio termodinamico locale.
+Poi, dato che la velocità del volume di controllo è arbitraria\footnote{è come ``muovere una telecamera``}, la si prende tale che in un singolo punto\footnote{lo stesso da cui dipende il flusso di massa} la velocità sia la stessa del fluido:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\text{Dato che} \quad \uline{v}_0 = \uline{v} \Rightarrow \uline{v'} = 0 \\
+			\text{di conseguenza $J'_M$ è nullo, avendo lo stesso valore che nel fluido a riposo} \\
+			\uline{J'}_M = 0 \Rightarrow \uline{J}_M = \cancel{\uline{J'}_M} + \rho \uline{v}_0\\
+			{J}_M = \rho \uline{v} = \uline{q}
+		\end{gathered}
+	\end{equation*}
+
+%SUBSUBSECTION
+\subsubsection{Equazione di bilancio per la quantità di moto}
+Analogo ragionamento si svolge per il flusso di quantità di moto, seppur complicato dal fatto che è un tensore. 
+
+Per un volume di controllo $V$ fermo (il termine destro è nullo per semplificare i calcoli, potrebbe essere $\uline{g}$, ma dato che è invariante tra i sistemi di riferimento sarebbe una complicazione inutile):
+%
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int_V \rho \uline{v} \dd{V} + \oint \uuline{J}_Q \vdot \uline{n} \dd{S} = 0 \\
+			\text{da cui} \\
+			\int_V\pdv{ (\rho \uline{v})}{t} \dd{V} + \oint \uuline{J}_Q \vdot \uline{n} \dd{S} = 0 \Rightarrow \int_V\pdv{ (\rho \uline{v})}{t} \dd{V} = - \oint \uuline{J}_Q \vdot \uline{n} \dd{S}
+		\end{gathered}
+	\end{equation*}
+%
+In caso di sistema di riferimento mobile si usa il teorema del trasporto di Reynolds per esprimere la derivata dell'integrale (scritta in questo caso per componenti, introducendo man mano gl indici):
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int_{V(t)} \rho v_i \dd{V} = \int \pdv{(\rho v_i)}{t} \dd{V} + \oint \rho v_i \uline{v}_b \vdot \uline{n} \dd{S} \\
+			\text{che sostituendo diventa} \\
+			\dv{t} \int_{V(t)} \rho v_i \dd{V} = \oint \rho v_i \uline{v}_b \vdot \uline{n} \dd{S} - \oint J_{Qij} n_j \dd{S} \\
+			\text{sommando si ha:} \\
+			\dv{t} \int_{V(t)} \rho v_i \dd{V} + \oint (J_{Qij} -  \rho v_i v_{bj}) n_j \dd{S} = 0
+		\end{gathered}
+	\end{equation*}
+%
+Si vede ora cosa succede nel sistema di riferimento mobile, tenendo conto che $\uuline{J}_Q$ e $v$ sono differenti.
+Dato che è un sistema inerziale ha analogamente diritto alla sua equazione di bilancio:
+%
+	\begin{equation*}
+		\dv{t} \int_{V'} \rho {v'}_i \dd{V} + \oint {J'}_{Qij} n_j \dd{S} = 0S
+	\end{equation*}
+%
+Da qui, ricordando che $v = v' + v_0$ e che $v_0$ è una costante, sostituendo $v' = v - v_0$ si ha che:
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int_{V'} \rho {v'}_i \dd{V} = \dv{t} \int_{V'} \rho (v_i - v_{0i}) \dd{V} = \int_{V'} \left( \pdv{(\rho v_i)}{t} - v_{0i} \pdv{\rho}{t} \right) \dd{V} = \\
+			\text{sostituendo poi la derivata della densità dall'equazione della massa}\\
+			= \int_{V'} \pdv{(\rho v_i)}{t} \dd{V} + v_{0i} \oint {J'}_{Mj} n_j \dd{S}
+		\end{gathered}
+	\end{equation*}
+%
+Questa può ora essere sostituita nel bilancio del sistema di riferimento mobile, ottenendo:
+%
+	\begin{equation*}
+		\begin{gathered}
+			- \oint J'_{Qij} n_j \dd{S} = - \oint J_{Qij} n_j \dd{S} + \oint \rho v_i v_{bj} n_j \dd{S} + \oint v_{0i} J'_{Mj} n_j \dd{S} \\
+			\text{che integrando, dato che sono tutti integrali su una superficie $S$ qualsiasi}\\
+			\text{quindi gli integrandi sono uguali, e ricordando che $v_b = v_0$} \\
+			J_{Qij} = J'_{Qij} + \rho v_i v_{0j} + \rho v_{0i} J'_{Mj} \quad \textit{Legge cambiamento s.r.}
+		\end{gathered}
+	\end{equation*}
+%
+Per tornare ad una notazione vettoriale si introduce la definizione di prodotto tensoriale: ${(\uline{a} \uline{b})}_{ij} = a_i b_j$. 
+È un prodotto tra vettori che dà un tensore, non è commutativo.
+Si ottiene quindi:
+%
+	\begin{equation*}
+		\uuline{J}_Q = \uuline{J'}_Q + \rho \uline{v} \uline{v}_0 + \rho \uline{v}_0 \uline{J'}_M
+	\end{equation*}
+%
+Questa, scegliendo $\uline{v}_0 = \uline{v}$ (da cui consegue che $\uline{v'} = 0 \quad \uline{J'}_M = 0$) e ricordando l'espressione del flusso di quantità di moto per un fluido fermo, e tenendo conto che si segue il fluido nella sua velocità $\uline{v}$, diventa:
+%
+	\begin{equation*}
+		\uuline{J}_Q = p \uuline{I} + \rho \uline{v} \uline{v}
+	\end{equation*}
+%
+Esiste quindi una sola possibile funzione per $\uuline{J}_Q$.
+
+%SUBSECTION
+\subsection{Equazioni di bilancio con flussi espliciti}
+Si hanno ora le espressioni generali dei flussi come funzioni delle proprietà: 
+%
+	\begin{equation*}
+		\begin{aligned}
+			\uline{J}_M = \rho \uline{v} \\
+			\uuline{J}_Q = p \uuline{I} + \rho \uline{v} \uline{v}
+		\end{aligned}
+	\end{equation*}
+%
+È possibile introdurle nelle equazioni di bilancio, sia nel caso di volume di controllo fermo che in movimento.
+%
+\subsubsection{Equazioni di bilancio in volume di controllo fermo}
+	\begin{equation*}
+		\begin{aligned}
+			\dv{t} \int \rho \dd{V} + \oint \rho \uline{v} \vdot \uline{n} \dd{S} = 0 \\
+			\dv{t} \int \rho \uline{v} \dd{V} + \oint (p \uuline{I} + \rho \uline{v} \uline{v}) \vdot \uline{n} \dd{S} = \int \rho \uline{g} \dd{V}
+		\end{aligned}
+	\end{equation*}
+Come promemoria, il termine a destra nell'equazione di bilancio della quantità di moto può anche essere nullo.
+%
+\subsubsection{Equazioni di bilancio in volume di controllo mobile}
+Rispetto al caso statico si aggiunge il pezzo relativo al movimento del contorno.
+Per l'equazione di bilancio della massa:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int_{V(t)} \rho \dd{V} + \oint \rho \uline{v} \vdot \uline{n} \dd{S} - \oint \rho \uline{v}_b \vdot \uline{n} \dd{S} = 0 \\
+			\text{cioè} \\
+			\dv{t} \int_{V(t)} \rho \dd{V} + \oint \rho (\uline{v}- \uline{v}_b) \vdot \uline{n} \dd{S} = 0 \\
+			\text{che introducendo la velocità del fluido relativa al contorno $\uline{v}_{rel}$ diventa:} \\
+			\dv{t} \int_{V(t)} \rho \dd{V} + \oint \rho \uline{v}_{rel} \vdot \uline{n} \dd{S} = 0
+		\end{gathered}
+	\end{equation*}
+%
+Per la quantità di moto:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int_{V(t)} \rho \uline{v} \dd{V} + \oint (p \uuline{I} + \rho \uline{v} \uline{v}) \vdot \uline{n} \dd{S} - \oint \rho \uline{v} \uline{v}_b \vdot \uline{n} \dd{S} = \int \rho \uline{g} \dd{V} \\
+			\text{che introducendo la velocità relativa diventa} \\
+			\dv{t} \int_{V(t)} \rho \uline{v} \dd{V} + \oint (p \uuline{I} + \rho \uline{v} \uline{v}_{rel}) \vdot \uline{n} \dd{S} = \int \rho \uline{g} \dd{V}\\
+			\text{che può anche essere scritta come}\\
+			\dv{t} \int_{V(t)} \rho \uline{v} \dd{V} + \oint [p \uline{n} + \rho \uline{v} (\uline{v}_{rel} \vdot \uline{n})]  \dd{S} = \int \rho \uline{g} \dd{V}
+		\end{gathered}
+	\end{equation*}
+È interessante notare che tutto ciò vale anche se non è tutto il volume di controllo a muoversi ma solamente una sua parte (ad esempio in un sistema cilindro-pistone).
+
+\subsection*{Bibliografia 3.2}
+\cite[Cap.\ 4.5, 5.1, 5.2]{CengelCimbala}\\
+\cite[Cap.\ 4.1, 4.2, 4.3]{PnueliGutfinger}

@@ -1,0 +1,85 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+%%DOCUMENT CLASS
+\documentclass[11pt,a4paper]{book}
+%
+%%PACKAGES
+%
+%Gestione progetto
+\usepackage{import} %Importazione file esterni
+%
+%Italiano
+\usepackage[english,main=italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%
+%Formule matematiche
+\usepackage{amsmath}
+\usepackage{physics} %per le derivate
+%
+%Immagini
+\usepackage{graphicx}
+\usepackage{float} %Allineamento immagini
+\usepackage{caption} %Opzioni didascalie
+%
+%ToDo List
+\usepackage{todonotes}
+%
+%Font Improvement
+\usepackage{microtype}
+%
+%Underline
+\usepackage[normalem]{ulem} %Normalem per evitare conflitti con la bibliografia
+%
+%SI units
+\usepackage{siunitx}
+%
+%cancelTO
+\usepackage{cancel}
+%
+%Tabelle
+\usepackage{booktabs}
+\usepackage{longtable} %Tabelle multipagina
+%
+%Bibliografia
+\usepackage{csquotes}  %recommended for biblatex+babel/polyglossia
+\usepackage[backend=biber,bibstyle=reading,citestyle=authortitle,entrykey=false]{biblatex}
+\addbibresource{./Bibliografia/Bibliografia.bib}
+%
+%DEBUG
+%\usepackage{showframe}
+%\tracingpages1
+%\tracingoutput1
+%\overfullrule=5mm
+%
+%%PACKAGES SETUPS
+%Caption Setup
+\captionsetup[figure]{labelfont={it,bf},textfont=it,font=small}
+%%SI setup
+\sisetup{per-mode=fraction,detect-weight=true, detect-family=true}
+%
+%
+%%DOCUMENT
+\begin{document} 
+\title{Appunti di Meccanica dei Fluidi}
+\author{https://github.com/f-dinucci/appuntiMeccanicaFluidi \\ Appunti non ufficiali realizzati da Francesco Di Nucci \\ Licenza CC BY-SA 4.0}
+\maketitle
+\import{./Prefazione}{Prefazione.tex}
+\tableofcontents{} 
+%
+%Lezioni
+\import{./Capitolo 1. Descrizione continua della materia}{Capitolo 1.tex}
+\import{./Capitolo 2. Statica dei fluidi}{Capitolo 2.tex}
+\import{./Capitolo 3. Fluidi in moto}{Capitolo 3.tex}
+\import{./Capitolo 4. Equazione dell'energia meccanica}{Capitolo 4.tex}
+\import{./Capitolo 5. Similitudine e adimensionalizzazione}{Capitolo 5.tex}
+\import{./Capitolo 6. Correnti a basso numero di Reynolds}{Capitolo 6.tex}
+\import{./Capitolo 7. Correnti ad alto numero di Reynolds}{Capitolo 7.tex}
+\import{./Capitolo 8. Moto turbolento}{Capitolo 8.tex}
+\import{./Bibliografia}{Bibliografia.tex}
+\import{./Appendice A - Unità di misura}{Appendice A - Unità di misura.tex}
+\import{./Appendice B - Cassetta degli attrezzi}{Appendice B - Cassetta degli attrezzi.tex}
+\import{./Appendice C - Licenza}{Appendice C - Licenza.tex}
+\end{document} 

@@ -1,0 +1,109 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+\section{Adimensionalizzazione}
+\subsection{Adimensionalizzazione e similitudine}
+Finora sono state trattate grandezze dimensionali, riferite cioè a unità di misura arbitrarie, i risultati dei problemi erano quindi legati alla situazione specifica, nonostante le equazioni fossero sempre le stesse.
+Con quanto visto finora non è ad esempio possibile effettuare esperimenti su di un modellino in scala e ricavare poi i risultati per un modello a grandezza reale.
+
+Si può arrivare ad un risultato indipendente dalla scala del problema introducendo le grandezze adimensionali.
+Le equazioni viste finora devono essere dimensionalmente consistenti, cioè avere tutti i termini nelle stesse unità di misura: l'unità di misura può quindi essere vista come un fattore di conversione che moltiplica l'equazione, dividendo l'equazione per questo fattore si arriva a dei termini che sono numeri puri, cioè adimensionali.
+
+I numeri adimensionali permettono di definire quali grandezze siano rilevanti in un problema: non è ad esempio possibile dire se una viscosità sia grande o piccola \textit{in assoluto}, ma può essere grande o piccola \textit{rispetto ad un riferimento}.
+Permettono inoltre di individuare i parametri fondamentali per più problemi, indipendentemente dalla scala, e permettono di accomunare il comportamento di situazioni diverse ma che hanno gli stessi parametri adimensionali.
+Questa è detta similitudine dinamica, le dimensioni e le grandezze caratteristiche dei problemi in esame sono diverse, ma diverse ``nelle giuste proporzioni'', quindi i comportamenti risultanti saranno simili.
+Tra due situazioni diverse non è detto che tutti i numeri adimensionali siano uguali, così come non è detto che si possano descrivere tutte le proprietà di un oggetto, ma allo stesso modo non è detto che questo sia rilevante per un dato problema.
+
+\subsection{Adimensionalizzazione Navier-Stokes}
+Per introdurre l'adimensionalizzazione si parte dalle equazioni di Navier-Stokes.
+Finora si era implicitamente supposto che fossero dimensionalmente coerenti, ora si espliciteranno anche le unità di misura dei vari termini:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\div{v} = 0 \quad \left[\si{\per \second}\right]\\
+			\pdv{\uline{v}}{t} + \uline{v} \vdot \grad{\uline{v}} + \frac{1}{\rho} \grad{p} = \nu \laplacian{\uline{v}} + \uline{g} \quad \left[\frac{v}{t} = \frac{v^2}{L}\right]
+		\end{gathered}
+	\end{equation*}
+%
+
+Per adimensionalizzare si scelgono due grandezze di riferimento, una per la lunghezza e una per la velocità, $L_r$ e $v_r$ (che di volta in volta saranno legate al problema specifico), da cui si possono ricavare le grandezze adimensionali $v_a = \frac{v}{v_r}$ e $L_a = \frac{L}{L_r}$.
+Effettuando la sostituzione la prima equazione diventa:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\frac{ \uline{v}_r }{L_r} \nabla_a \vdot \uline{v}_a = 0\\
+			\nabla_a \vdot \uline{v}_a = 0
+		\end{gathered}
+	\end{equation*}
+%
+Dove $\nabla_a$ indica la derivazione rispetto a $L_a$.
+
+Per la seconda equazione invece, tenendo conto che le grandezze adimensionali sono funzioni e quelle di riferimento sono costanti, e definito un tempo di riferimento $t_r = \frac{L_r}{v_r}$ il primo termine diventa:
+%
+	\begin{equation*}
+		\frac{v^2_r}{L_r} \pdv{\uline{v}_a}{t_a}\\
+	\end{equation*}
+%
+Il termine successivo invece come dimensioni è $\left[ \frac{m}{s^2} = \frac{v^2}{L} \right]$, quindi si arriva a:
+%
+	\begin{equation*}
+		\frac{v^2_r}{L_r} \left[ \pdv{\uline{v}_a}{t_a} + \uline{v}_a \vdot \nabla_a \uline{v}_a + \cdots \right]
+	\end{equation*}
+%
+La densità è supposta costante, non vi è bisogno di un riferimento che è invece necessario per la pressione:
+%
+	\begin{equation*}
+		\begin{gathered}
+			p_r = \rho v_r^2\\
+			p = p_a \rho v^2_r\\
+			\grad p = \rho \frac{v^2_r}{L_r} \nabla_a p_a\\		
+			\text{da cui}\\
+ 			\frac{v^2_r}{L_r} \left[ \pdv{{\uline{v}}_a}{t_a} + \uline{v}_a \vdot \nabla_a \uline{v}_a + \nabla_a p_a \right] = \nu \frac{v_r}{L^2_r} \nabla^{2a} \uline{v}_a - g {\hat{\imath}}_z\\
+ 			\text{Dividendo}\\
+ 			\pdv{{\uline{v}}_a}{t_a} + \uline{v}_a \vdot \nabla_a \uline{v}_a + \nabla_a p_a =  \left( \frac{\nu}{L_r v_r} \right) \nabla^{2a} \uline{v}_a - \left( \frac{L_r g}{v^2_r} \right) {\hat{\imath}}_z
+		\end{gathered}
+	\end{equation*}
+%
+In questo $\nabla^{2a}$ è il laplaciano adimensionale.
+
+I gruppi adimensionali d'interesse sono evidenziati tra parentesi. 
+Essendo adimensionali possono essere scritti in vari modi, di solito vengono scritti come:
+%
+	\begin{equation*}
+		\begin{gathered}
+			R_e = \frac{L_r v_r}{\nu} \quad \textbf{Numero di Reynolds}\\
+			F_r = \frac{v_r}{ \sqrt{L_r g} } \quad \textbf{Numero di Froude}
+		\end{gathered}
+	\end{equation*}
+%
+
+Si arriva quindi alle equazioni di Navier-Stokes in forma adimensionale:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\nabla_a \vdot \uline{v}_a = 0\\
+			\pdv{\uline{v}_a}{t_a} + \uline{v}_a \vdot \nabla_a \uline{v}_a + \nabla_a p_a = \frac{1}{R_e} \nabla^{2a} \uline{v}_a - \frac{1}{{F_r}^2} {\hat{\imath}}_z
+		\end{gathered}
+	\end{equation*}
+%
+
+\subsection{Interpretazione numeri adimensionali}
+Nel caso di fluidi comprimibili si introduce il numero di Mach, definito a partire dalla velocità del suono in quelle condizioni:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\left. a^2 = \pdv{p}{\rho} \right|_s\\
+			M_a = \frac{v_r}{a}		
+		\end{gathered}
+	\end{equation*}
+%
+
+Una volta adimensionalizzato il problema è possibile stabilire se certe approssimazioni siano lecite o meno.
+Non ha senso chiedersi se $\pdv{p}{\rho}$ sia piccola, ma se $M_a << 1$ è lecito considerare il fluido incomprimibile.
+Allo stesso modo non si può definire se $\nu$ sia grande o piccola in assoluto, ma se $R_e >> 1$  allora il fluido è non viscoso.
+Il numero di Froude invece misura se l'azione della gravità sul problema sia trascurabile o meno (tranne nei casi in cui ci sia un pelo libero o si possa suddividere la pressione in statica e dinamica).
+
+\subsection*{Bibliografia 5.1}
+\cite[Cap.\ 10.2]{CengelCimbala}\\
+\cite[Cap.\ 8.1]{PnueliGutfinger}

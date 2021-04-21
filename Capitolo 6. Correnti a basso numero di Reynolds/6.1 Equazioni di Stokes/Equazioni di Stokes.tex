@@ -1,0 +1,94 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+\section{Equazioni di Stokes}
+\subsection{Equazioni di Stokes}
+Si vedrà ora il caso correnti a piccolo Reynolds, cioè:
+%
+	\begin{equation*}
+		R_e = \frac{L_r v_r}{\nu} << 1
+	\end{equation*}
+%
+Si lavora sulle equazioni adimensionalizzate, sottintendendo il pedice relativo all'adimensionalizzazione.
+Inoltre si ipotizza di poter suddividere la pressione in statica e dinamica e considerare solamente quest'ultima, rimuovendo la gravità dalle equazioni.
+Le equazioni di Navier-Stokes diventano quindi:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\div{\uline{v}} = 0\\
+			\pdv{\uline{v}}{t} + \uline{v} \vdot \grad{\uline{v}} + \grad{p} = \frac{1}{Re} \laplacian{\uline{v}}
+		\end{gathered}
+	\end{equation*} 
+%
+Portando il numero di Reynolds al numeratore la seconda diventa:
+%
+	\begin{equation*}
+		R_e \pdv{\uline{v}}{t} + R_e \uline{v} \vdot \grad{\uline{v}} + R_e \grad{p} = \laplacian{\uline{v}}
+	\end{equation*} 
+%
+
+Se ora si supponesse solamente $R_e << 1$ e si semplificassero i termini di conseguenza, si avrebbe una situazione incoerente con l'equazione di continuità, non si avrebbe soluzione.
+Si parte richiamando le grandezze adimensionali a partire da quelle dimensionali:
+	\begin{equation*}
+		\begin{gathered}
+			\uline{x} = \frac{\uline{x}^d}{L_r} \\
+			\uline{v} = \frac{\uline{v}^d}{L_r}
+		\end{gathered}
+	\end{equation*} 
+Poi erano state definite arbitrariamente (dato che includono risultati del problema):
+%
+	\begin{equation*}
+		\begin{gathered}
+			t = \frac{t^d v_r}{L_r}\\
+			p = \frac{p^d}{\rho v^2_r}\\
+		\end{gathered}
+	\end{equation*} 
+%
+Essendo riferimenti arbitrari, si può pensare di ridefinirli inglobando il numero di Reynolds nelle grandezze di riferimento:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\bar{t} = \frac{t^d v_r}{L_r R_e}\\
+			\bar{p} = \frac{p^d R_e}{\rho v^2_r}
+		\end{gathered}
+	\end{equation*}
+% 
+Si arriva quindi a:
+%
+	\begin{equation*}
+		\pdv{ \uline{v} }{ \bar{t} } + R_e \uline{v} \vdot \grad{\uline{v}} + \grad{\bar{p}} = \laplacian{\uline{v}}
+	\end{equation*}
+%
+Che per Reynolds piccolo diventa
+	\begin{equation*}
+		\begin{gathered}
+			\pdv{ \uline{v} }{ \bar{t} } + \cancel{ R_e \uline{v} \vdot \grad{\uline{v}} } + \grad{\bar{p}} = \laplacian{\uline{v}}\\
+			\pdv{ \uline{v} }{ \bar{t} } + \grad{\bar{p}} = \laplacian{\uline{v}}
+		\end{gathered}
+	\end{equation*} 
+%
+In caso di problemi con Reynolds piccolo quindi si utilizza questa adimensionalizzazione, dove arbitrariamente si usano come riferimenti:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\bar{t} = \frac{t^d \nu}{L^2_r} \\
+			\bar{p} = \frac{p^d L_r}{\mu v_r}
+		\end{gathered}
+	\end{equation*} 
+%
+E le equazioni assumono una forma in cui sono dette \textbf{equazioni di Stokes}:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\div{\uline{v}} = 0\\
+			\pdv{ \uline{v} }{ \bar{t} } + \grad{\bar{p}} = \laplacian{\uline{v}}
+		\end{gathered}
+	\end{equation*} 
+%
+È un problema lineare, quindi vale il principio di sovrapposizione degli effetti per le soluzioni.
+Inoltre le condizioni al contorno non cambiano rispetto alle equazioni di Navier-Stokes.
+
+\subsection*{Bibliografia 6.1}
+\cite[Cap.\ 10.4]{CengelCimbala}\\
+\cite[Cap.\ 8.1, 9.1]{PnueliGutfinger}

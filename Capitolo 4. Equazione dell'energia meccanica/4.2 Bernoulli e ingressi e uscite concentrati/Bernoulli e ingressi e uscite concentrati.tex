@@ -1,0 +1,37 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+\section{Bernoulli e ingressi e uscite concentrati}
+%SUBSECTION
+\subsection{Legge di Bernoulli e ingressi e uscite concentrati}
+Nel caso di ingressi e uscite concentrati si parte dalla somma di legge di Bernoulli e equazione di continuità (sommando quantità nulle, la somma rimane nulla):
+%
+	\begin{equation*}
+		\begin{gathered}
+			\rho \uline{v} \vdot \grad{\left( \frac{v^2}{2} + \frac{p}{\rho} + gz \right)} + \left(\frac{v^2}{2} + \frac{p}{\rho} + gz \right) \div{(\rho \uline{v})} = 0\\
+			\text{interpretandola come divergenza e integrandola}\\
+			\int \div{\left[ \left(\frac{v^2}{2} + \frac{p}{\rho} + gz \right) \rho \uline{v} \right]} \dd{V} = 0\\
+			\text{applicando la formula di Gauss}\\
+			\oint \left(\frac{v^2}{2} + \frac{p}{\rho} + gz \right) \rho \uline{v} \vdot \uline{n} \dd{S} = 0
+		\end{gathered}
+	\end{equation*}
+%
+Si è ottenuto il flusso di energia meccanica $\left(\frac{v^2}{2} + \frac{p}{\rho} + gz \right) \rho \uline{v}$, il flusso totale di energia meccanica attraverso una superficie chiusa è zero, è una forma di conservazione dell'energia, anche se è un'equazione derivata e non fondamentale.
+
+Nel caso di ingressi e uscite concentrati sulle pareti solide si eliminano gli integrali, dato che $\uline{v} \vdot \uline{n} = 0$, rimangono solo ingressi e uscite nei quali pressione e velocità sono costanti.
+Dette $Q_1$ e $Q_2$ le portate:
+%
+	\begin{equation*}
+		\left( \frac{v_1^2}{2} + \frac{p_1}{\rho} + g z_1 \right) Q_1 + \left( \frac{v_2^2}{2} + \frac{p_2}{\rho} + g z_2 \right) Q_2 = 0
+	\end{equation*}
+%
+Nel caso in cui si abbiano un solo ingresso e una sola uscita, $Q_1 = - Q_2$, quindi:
+%
+	\begin{equation*}
+		\frac{v_1^2}{2} + \frac{p_1}{\rho} + g z_1 =  \frac{v_2^2}{2} + \frac{p_2}{\rho} + g z_2 
+	\end{equation*}
+% 
+\subsection*{Bibliografia 4.2}
+\cite[Cap.\ 5.5]{CengelCimbala}\\
+\cite[Cap.\ 7.1]{PnueliGutfinger}

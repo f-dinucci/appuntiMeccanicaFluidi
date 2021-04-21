@@ -1,0 +1,176 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+\section{Equazione dell'energia meccanica}
+L'equazione di Bernoulli è l'equazione dell'energia \textit{meccanica}, non dell'energia in generale. 
+È una equazione derivata da quella della quantità di moto, non è una relazione fondamentale e permette di avere informazioni finite su alcune grandezze. 
+
+%SUBSECTION
+\subsection{Forma debole}
+Nella meccanica discreta si può ottenere l'equazione dell'energia meccanica moltiplicando scalarmente la legge di Newton per la velocità:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{F} = m \pdv[2]{x}{t}\\\left(\frac{v^2}{2} + \frac{p}{\rho} + gz \right) \rho \uline{v}
+			\dv{\uline{x}}{t} \vdot \uline{F} = m \dv{\uline{x}}{t} \vdot \pdv[2]{x}{t}\\
+			\text{se la forza deriva da un potenziale}\\
+			\uline{F} = - \dv{U}{\uline{x}}\\
+			- \dd{U}{t} = m \dv{t} \left( \frac{1}{2} \dv{x}{t} \right)\\
+		\end{gathered}
+	\end{equation*}
+%
+
+Nel caso continuo invece, dalle equazioni di Eulero (in caso quindi di fluido non viscoso):
+%
+	\begin{equation*}
+		\begin{gathered}
+			\pdv{\uline{v}}{t} + \uline{v} \div{\uline{v}} + \frac{1}{\rho} \grad{p}  = \uline{g}\\
+		\end{gathered}
+	\end{equation*}
+%		
+Moltiplicando per la velocità:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{v} \vdot \pdv{\uline{v}}{t} + \uline{v} \vdot \uline{v} \div{\uline{v}} + \frac{1}{\rho} \grad{p}  \vdot \uline{v} = \uline{g} \vdot \uline{v}\\
+			\uline{v} \vdot \pdv{\uline{v}}{t} + \uline{v} \vdot \grad{\frac{v^2}{2}} + \frac{1}{\rho} \grad{p}  \vdot \uline{v} = \uline{g} \vdot \uline{v}\\
+		\end{gathered}
+	\end{equation*}
+%
+Vengono aggiunte alcune ipotesi.
+In caso di moto stazionario $\pdv{\uline{v}}{t} = 0$.
+Nel caso di accelerazione di gravità costante, questa sicuramente deriva da un potenziale (preso l'asse z verticale) $\uline{g} = \grad{(-gz)}$.
+Aggiungendo l'ipotesi di fluido incomprimibile ($\rho = costante$), si ottiene:
+%
+	\begin{equation*}
+		\uline{v} \vdot \grad{\left( \frac{v^2}{2}\right)} + \frac{p}{\rho} \grad{p} \vdot \uline{v} + \grad{(- gz)} \vdot \uline{v} = 0
+	\end{equation*}
+%
+Si ottiene quindi la \textbf{legge di Bernoulli in forma debole}:
+%
+	\begin{equation*}
+		\uline{v} \vdot \grad{\left( \frac{v^2}{2} + \frac{p}{\rho} + gz \right)}  = 0
+	\end{equation*}
+%
+Ricordando che una linea di corrente è una linea che punto per punto è parallela al vettore velocità, dato che la componente lungo v della quantità in parentesi è nulla, questa quantità è costante lungo una linea di corrente.
+Il termine tra parentesi viene detto trinomio di Bernoulli ed è costante lungo una linea di corrente:
+%
+	\begin{equation*}
+		\left( \frac{v^2}{2} + \frac{p}{\rho} + gz \right)
+	\end{equation*}
+%
+
+%SUBSECTION
+\subsection{Forma forte}
+Esiste anche la ``forma forte'' dell'equazione dell'energia meccanica.
+Partendo nuovamente dall'equazione di Eulero:
+%
+	\begin{equation*}
+		\pdv{\uline{v}}{t} + \uline{v} \div{\uline{v}} + \frac{1}{\rho} \grad{p}  = \uline{g}
+	\end{equation*}
+ %
+ 
+Per dei vettori algebrici vale che (e si può fare anche se uno degli operatori è nabla, basta stare attenti all'ordine):
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{a} \cross (\uline{b} \cross \uline{c}) = (\uline{a} \vdot \uline{c}) \uline{b} - (\uline{a} \vdot \uline{b}) \uline{c}\\
+			\text{se c è nabla}\\
+			\uline{v} \vdot \grad{\uline{v}} \quad \text{come} \quad (\uline{a} \vdot \uline{c}) \uline{b}\\
+			- \uline{v} \cross (\curl{\uline{v}}) = \uline{v} \vdot \grad{\uline{v}} - (\grad{\uline{v}}) \vdot \uline{v}\\
+			\uline{v} \vdot \grad{\uline{v}} = (\curl{\uline{v}}) \cross \uline{v} + \grad{\uline{v}} \vdot \uline{v}
+		\end{gathered}
+	\end{equation*}
+%
+Si introduce quindi la vorticità come rotore della velocità:
+%
+	\begin{equation*}
+ 		\uline{\omega} = \curl{\uline{v}}
+	\end{equation*}
+%
+Ricordando poi che $\grad{\uline{v}} \vdot \uline{v} = \grad{ ( \frac{v^2}{2} ) }$ si arriva a:
+%
+	\begin{equation*}
+		\uline{v} \vdot \grad{\uline{v}} = \uline{\omega} \cross \uline{v} + \grad{(\frac{v^2}{2})}
+	\end{equation*}
+%
+Sostituendo nell'equazione iniziale e ripetendo le considerazioni precedenti sulla densità e gravità costanti, si arriva a:
+%
+	\begin{equation*}
+		\pdv{\uline{v}}{t} + \uline{\omega} \cross \uline{v} + \grad{\left( \frac{v^2}{2} + \frac{p}{\rho} + gz \right)} = 0
+	\end{equation*}
+%
+Notare che nel caso stazionario darebbe lo stesso risultato della forma debole, dato che si avrebbero $\pdv{\uline{v}}{t} = 0$ e $\uline{v} \vdot (\uline{\omega} \vdot \uline{v}) = 0$.
+
+L'interpretazione del risultato ottenuto è che il trinomio di Bernoulli è costante anche lungo linee parallele punto per punto al vettore vorticità, dette linee vorticose, dato che:
+%
+	\begin{equation*}
+		 \uline{\omega} \vdot (\uline{\omega} \cross \uline{v}) = 0
+	\end{equation*}
+%
+
+Si può introdurre una ulteriore ipotesi, che $\uline{\omega} = 0$, in tal caso il moto è detto irrotazionale e $\uline{\omega} = \curl{\uline{v}} = 0$.
+Si ottiene \textbf{il trinomio di Bernoulli in forma forte}:
+%
+	\begin{equation*}
+		\grad{\left( \frac{v^2}{2} + \frac{p}{\rho} + gz \right)} = 0
+	\end{equation*}
+%
+Sono tre condizioni, il trinomio di Bernoulli è costante in \textit{tutto} lo spazio in cui la vorticità è nulla, per questo è detta forma forte.
+
+%SUBSECTION
+\subsection{Problema instazionario}
+La forma forte è valida anche in caso di problema instazionario, dato che un campo vettoriale irrotazionale si può supporre derivi da un potenziale, in questo caso della velocità:
+%
+	\begin{equation*}
+		\uline{v} = \grad{\phi}
+	\end{equation*}
+%
+Ma se la velocità è il gradiente di un potenziale allora:
+%
+	\begin{equation*}
+		\dv{\uline{v}}{t} = \grad{\pdv{\phi}{t}}
+	\end{equation*}
+%
+Quindi anche il termine irrotazionale è un gradiente, ripetendo il procedimento visto prima si ottene un quadrinomio, detto \textbf{quadrinomio di Bernoulli}:
+%
+	\begin{equation*}
+		\grad{\left( \pdv{\phi}{t} + \frac{v^2}{t} + \frac{p}{\rho} + gz \right)} = 0
+	\end{equation*}
+%
+La forma forte vale anche nel caso instazionario, purché si consideri il termine legato al potenziale della velocità.
+
+%SUBSECTION
+\subsection{Fluido comprimibile}
+In caso di fluido comprimibile si può supporre di avere un caso in cui la densità sia variabile ma funzione solamente della pressione, $\rho = \rho(p)$.
+Normalmente densità e volume specifico sarebbero funzioni di pressione e temperatura, $f = f(p, T)$, quindi sarebbe impossibile una soluzione senza tener conto dell'equazione dell'energia.
+In alcuni casi però, ad esempio temperatura del fluido costante o moto isoentropico del fluido, si può eliminare la dipendenza dalla temperatura.
+Quindi si può trovare:
+%
+	\begin{equation*}
+		P = \int \frac{1}{\rho(p)} \dd{p}
+	\end{equation*}
+%
+Questo è utile per poter scrivere:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\pdv{P}{x_i} = \frac{1}{\rho} \pdv{p}{x_i}\\
+			\grad{P} = \frac{1}{\rho} \grad{p}
+		\end{gathered}
+	\end{equation*}
+%
+Questo permette di riscrivere forma debole e forma forte come:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{v} \vdot \grad{\left( \frac{v^2}{2} + P + gz \right)} = 0\\
+			 \grad{\left( \pdv{\phi}{t} + \frac{v^2}{2} + P + gz \right)} = 0
+		\end{gathered}
+	\end{equation*}
+% 
+
+\subsection*{Bibliografia 4.1}
+\cite[Cap.\ 5.4, 5.5, 10.3, 10.4, ]{CengelCimbala}\\
+\cite[Cap.\ 7.1, 7.3]{PnueliGutfinger}

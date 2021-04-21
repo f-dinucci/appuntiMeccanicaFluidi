@@ -1,0 +1,209 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+\section{Conservazione in forma differenziale}
+
+\subsection{Equazioni di conservazione in forma integrale} 
+Per passare alla forma\footnote{o meglio alle forme conservativa e convettiva} delle equazioni di conservazione, si parte dalle equazioni in forma integrale:
+%
+	\begin{equation*}
+		\left\{
+		\begin{aligned}
+			&\dv{t} \int_V \rho \dd{V} + \oint \uline{J}_M \vdot \uline{n} \dd{S} = 0 \\
+			&\dv{t} \int_V \rho \uline{v} \dd{V} + \oint \uuline{J}_Q \vdot \uline{n} \dd{S} = \int \rho \uline{g} \dd{V} \\
+			&\dv{t} \int_V \rho e \dd{V} + \oint \uuline{J}_E \vdot \uline{n} \dd{S} = L 
+		\end{aligned}
+		\right.
+	\end{equation*}
+%
+
+L'equazione dell'energia (nella quale il termine a destra è il lavoro delle forze di volume) è riportata solamente per completezza.
+
+\subsection{Equazioni in forma conservativa}
+Supponendo che si sia un caso con volumi di controllo fermi, applicando il teorema della divergenza alle equazioni di conservazione in forma integrale si ottengono le equazioni di conservazione in forma differenziale conservativa:
+	\begin{equation*}
+		\left\{
+		\begin{gathered}
+			\dv{t} \int \rho \dd{V} + \int \div{\uline{J}_M} \dd{V} = 0 \rightarrow \pdv{\rho}{t} + \div{\uline{J}_M} = 0 \\
+			\dv{t} \int \rho \uline{v} \dd{V} + \int \div{\uuline{J}_Q} \dd{V} = \int \rho \uline{g} \dd{V} \rightarrow \pdv{(\rho \uline{v})}{t} + \div{\uuline{J}_Q} = \rho \uline{g} \\
+			\dv{t} \int \rho e \dd{V} + \int \div{\uline{J}_E} \dd{V} = \int \rho \uline{g} \vdot \uline{v} \dd{V} \rightarrow \pdv{(\rho e)}{t} + \div{\uline{J}_E} = \rho \uline{g} \vdot \uline {v} 
+		\end{gathered}
+		\right.
+	\end{equation*}
+
+Questa forma è detta conservativa poiché termine per termine queste equazioni corrispondono alle leggi di conservazione in forma integrale.
+Esplicitando i flussi e tralasciando l'equazione dell'energia, le \textbf{equazioni di conservazione in forma conservativa} sono:
+%
+	\begin{equation*}
+		\left\{
+		\begin{aligned}
+			&\pdv{\rho}{t} + \div{(\rho \uline{v})} = 0\\
+			&\pdv{(\rho \uline{v})}{t} + \div{(p \uuline{I} + \rho \uline{v} \uline{v})} = \rho \uline{g}
+		\end{aligned}
+		\right.
+	\end{equation*}
+%
+	
+Nel caso la velocità non sia nulla, è un'incognita oltre alla pressione.
+In caso di fluido incomprimibile si hanno quattro incognite, cinque nel caso generale.
+
+Notare che l'equazione per la quantità di moto si può scrivere anche come:
+	\begin{equation*}
+		\pdv{(\rho \uline{v})}{t} + \div{(\rho \uline{v} \uline{v})} + \grad{p} = \rho g
+	\end{equation*}
+	
+\subsection{Equazioni in forma convettiva (Eulero)}
+Utilizzando l'operazione di derivata sostanziale\footnote{vedere cassetta degli attrezzi} si possono scrivere le equazioni di conservazione in forma differenziale convettiva.
+
+\subsubsection{Massa}
+Per la massa si parte dall'equazione conservazione della massa (anche detta equazione di continuità) in forma differenziale conservativa, sviluppando la derivata del prodotto ed introducendo la derivata sostanziale:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\pdv{\rho}{t} + \div{(\rho \uline{v})} = 0\\
+			\pdv{\rho}{t} + \uline{v} \vdot \grad{\rho} + \rho \div{\uline{v}} = 0\\
+			\frac{\mathrm{D} \rho}{\mathrm{D} t} + \rho \div{\uline{v}} = 0
+		\end{gathered}
+	\end{equation*}
+%
+
+\subsubsection{Quantità di moto}
+Anche per la quantità di moto si parte dall'equazione differenziale in forma conservativa, sviluppando derivate e prodotti:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\pdv{(\rho \uline{v})}{t} + \div{(\rho \uline{v} \uline{v})} + \grad{p} = \rho \uline{g} \\
+			\pdv{\rho}{t} \uline{v} + \rho \pdv{\uline{v}}{t} + \div{(\rho \uline{v})} \uline{v} + \rho \uline{v} \vdot \grad{\uline{v}} + \grad{p} = \rho \uline{g}\\
+			\text{riordinando}\\
+			\pdv{\rho}{t} \uline{v} + \div{(\rho \uline{v})} \uline{v} + \rho \pdv{\uline{v}}{t} + \rho \uline{v} \vdot \grad{\uline{v}} + \grad{p} = \rho \uline{g}
+		\end{gathered}
+	\end{equation*}
+%
+Raggruppando $\uline{v}$ per i primi due termini si ottiene l'equazione di continuità, che si può quindi semplificare:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{v} \cancel{\left( \pdv{\rho}{t} + \div{(\rho \uline{v})} \right)} + \rho \pdv{\uline{v}}{t} + \rho \uline{v} \vdot \grad{\uline{v}} + \grad{p} = \rho \uline{g}\\
+			\rho \pdv{\uline{v}}{t} + \rho \uline{v} \vdot \grad{\uline{v}} + \grad{p} = \rho \uline{g}
+		\end{gathered}
+	\end{equation*}
+%
+Dividendo poi per $\rho$ e introducendo l'operatore di derivata sostanziale:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\pdv{\uline{v}}{t} + \uline{v} \vdot \grad{\uline{v}} + \frac{1}{\rho} \grad{p} = \uline{g}\\
+			\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p} = \uline{g}
+		\end{gathered}
+	\end{equation*}
+%
+
+\subsubsection{Equazioni di Eulero}
+Tralasciando come al solito l'equazione dell'energia, si sono ottenute le equazioni di conservazione in forma convettiva, anche note come equazioni di Eulero:
+%
+	\begin{equation*}
+		\left\{
+			\begin{aligned}
+				&\frac{\mathrm{D} \rho}{\mathrm{D} t} + \rho \div{\uline{v}} = 0\\
+				&\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p} = \uline{g}
+			\end{aligned}
+		\right.
+	\end{equation*}
+%
+Nel caso il fluido sia incomprimibile (quindi a densità costante), l'equazione di continuità diventa un vincolo su $\uline{v}$, che deve essere solenoidale (avere cioè divergenza nulla):
+%
+	\begin{equation*}
+		\left\{
+			\begin{aligned}
+				&\div{\uline{v}} = 0\\
+				&\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p} = \uline{g}
+			\end{aligned}
+		\right.
+	\end{equation*}
+%
+
+\subsection{Pressione idrostatica e dinamica}
+Nel caso incomprimibile si può introdurre una ulteriore semplificazione, considerando due componenti rappresentanti una ``pressione idrostatica'' dovuta alla gravità e una ``pressione dinamica'' dovuta al moto del fluido:
+%
+	\begin{equation*}
+	 	p = p_{idrostatica} + p_{dinamica}
+	\end{equation*}
+%
+
+O in alternativa è possibile definire una pressione dinamica come la differenza tra la pressione misurata e quella calcolata nel caso statico:
+%
+	\begin{equation*}
+	 	p_{dinamica} = p - p_{idrostatica}
+	\end{equation*}
+%
+
+Applicando questa definizione all'equazione di Eulero per la quantità di moto:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p} = \uline{g}\\
+			\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p_{idro} + p_{din}} = \uline{g}\\
+			\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p_{idro}} + \frac{1}{\rho} \grad{p_{din}} = \uline{g}\\
+			\text{per le equazioni dell'idrostatica}\\
+			\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \cancel{\uline{g}} + \frac{1}{\rho} \grad{p_{din}} = \cancel{\uline{g}}\\
+			\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p_{din}} = 0
+		\end{gathered}	
+	\end{equation*}
+%
+
+In pratica è come se si ignorasse temporaneamente l'effetto della gravità per poi ``recuperarlo'' successivamente.
+
+Questa semplificazione è possibile solamente se non vi sono ulteriori condizioni sulla pressione\footnote{ad esempio pelo libero mobile a contatto con l'atmosfera}, come nel caso di onde marine, o nel caso le funzioni non siano continue\footnote{che non permette di passare dalla forma integrale a quella differenziale}, come nel caso dello studio delle onde d'urto.
+
+\subsection{Riepilogo equilibrio locale}
+Per sintetizzare, in caso di equilibrio locale etc etc valgono quindi le seguenti relazioni.
+
+\subsubsection{Equazioni generali di bilancio}
+Valide sempre.
+%
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int \rho \dd{V} + \oint \uline{J}_M \vdot \uline{n} \dd{S}\\
+			\dv{t} \int \rho \uline{v} \dd{V} + \oint \uuline{J}_Q \vdot \uline{n} \dd{S} = \int \rho \uline{g} \dd{V}
+		\end{gathered}
+	\end{equation*}
+%
+	
+\subsubsection{Flussi}
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{J}_M = \rho \uline{v}\\
+			\uuline{J}_Q = \rho \uline{v} \uline{v} + p \uuline{I}
+		\end{gathered}
+	\end{equation*}
+%
+
+\subsubsection{Equazioni in forma conservativa}
+%
+	\begin{equation*}
+		\left\{
+			\begin{gathered}
+				\pdv{\rho}{t} + \div{(\rho \uline{v})} = 0\\
+				\pdv{(\rho \uline{v})}{t} + \div{(\rho \uline{v} \uline{v} + p \uuline{I})} = \rho \uline{g}
+			\end{gathered}
+		\right.
+	\end{equation*}
+%
+
+\subsubsection{Equazioni in forma convettiva}
+%
+	\begin{equation*}
+		\left\{
+			\begin{gathered}
+				\frac{\mathrm{D} \rho}{\mathrm{D} t} + \rho \div{\uline{v}} = 0\\
+				\frac{\mathrm{D} \uline{v}}{\mathrm{D} t} + \frac{1}{\rho} \grad{p} = \uline{g}
+			\end{gathered}
+		\right.
+	\end{equation*}
+%
+
+\subsection*{Bibliografia 3.5}
+\cite[Cap.\ 10.3]{CengelCimbala}\\
+\cite[Cap.\ 5.3, 5.4, 5.5, 5.10]{PnueliGutfinger}

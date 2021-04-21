@@ -1,0 +1,265 @@
+%Part of/Parte di https://github.com/f-dinucci/appuntiMeccanicaFluidi/
+%License/Licenza Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) - attribution/attribuzione Francesco Di Nucci
+%See also/Vedere anche https://creativecommons.org/licenses/by-sa/4.0/ and/e https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%
+\section{Equazioni di bilancio}
+%
+%%SUBSECTION
+\subsection{Flusso}
+Occorre fare una distinzione tra grandezze interne ed esterne al volume di controllo, poiché ad esempio nei bilanci contano solamente le forze esterne.
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.6]{./1.4 Equazioni di bilancio/1.4-1}
+		\centering
+		\caption{Gli scambi con l'esterno avvengono attraverso la superficie del volume di controllo}
+	\end{figure}
+%
+Il volume di controllo è racchiuso da superfici (scelte arbitrariamente), le grandezze vengono definite come interne/esterne al volume di controllo rispetto a queste.
+Si introduce quindi il concetto di flusso ($J$): attraverso le superfici passano grandezze come massa, quantità di moto ecc., si effettua un bilancio che varia quando qualche grandezza passa per i volumi di controllo.
+Ad esempio per un sistema discreto la quantità di moto è:
+%
+	\begin{equation*}
+		\dv{t} \sum{P_i} = F_{ext} 
+	\end{equation*}
+%
+Nel caso continuo invece la variazione di una generica proprietà $P$ nel tempo è data dal flusso, che è un integrale di superficie:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\dv{t} \int_V{f \dd{V}} = \int_{\partial{V}} {J \dd{S}} \\
+			 \text{in cui $S$ è la superficie che racchiude il volume $V$}
+		\end{gathered}
+	\end{equation*}
+%
+Notare che il volume di controllo è scelto arbitrariamente e che l'integrale si effettua sul suo contorno $\partial V$ poiché riflette un motivo fisico: il flusso di una proprietà tramite un contorno costituito da più parti è equivalente alla somma dei flussi tramite le varie parti e questo si rispecchia nell'additività degli integrali.
+Da notare che ``flusso'' può riferirsi sia all'integrando (propriamente detto ``densità di flusso'') che all'integrale (propriamente detto ``flusso totale'').
+%
+%%SUBSECTION
+\subsection{Dipendenza del flusso dalla normale}
+Il flusso è legato alla superficie, la cui orientazione può variare di molto, (vedere figura 1.6) quindi si individua il piano tangente e di conseguenza la normale punto per punto.
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.75]{./1.4 Equazioni di bilancio/1.4-2}
+		\centering
+		\caption{Notare la variazione della normale}
+	\end{figure}
+%
+Di conseguenza mentre la densità $f$ è una funzione del punto e del tempo, il flusso è una funzione del punto, dell'orientazione (quindi del versore normale) e del tempo:
+%
+	\begin{equation*}
+		\dv{t} \int f (\uline{x}, t) \dd{V} = \int_{\partial{V}} J (\uline{x}, \uline{n}, t) \dd{S}
+	\end{equation*}
+%
+Nel flusso si può esplicitare la dipendenza dall'orientazione (quindi dalla normale).
+Si prenda il caso di due volumi uguali, variando di poco il contorno si ha che varia notevolmente la normale nella zona interessata. 
+Allo stesso tempo cambiando di poco il contorno, massa/volume non sono molto diversi, di conseguenza cambia di poco anche la proprietà d'interesse contenuta in questo volume. 
+Conseguentemente varia di poco anche la sua derivata, e poiché questa è uguale al flusso totale, il flusso totale varia di un infinitesimo, anche se la normale è variata notevolmente. \\
+In sintesi il risultato dell'integrale (quindi anche l'integrando) varia di poco a fronte di una notevole variazione della normale purché vari di poco il volume individuato dalla superficie. \\
+Un'altra grandezza che varia di poco al variare di poco del volume sono le proiezioni del volume sui piani coordinati, potrebbe quindi essere interessante legare il flusso a queste proiezioni.
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.9]{./1.4 Equazioni di bilancio/1.4-3}
+		\centering
+		\caption{Immaginando di variare di poco il volume, varieranno di poco anche le proiezioni}
+	\end{figure}
+%
+Immaginando di associare il flusso con ognuna di queste proiezioni:
+%
+	\begin{equation*}
+		\int J (\uline{x}, \uline{n}, t) \dd{S} = \int { J_1 \dd{x_2} \dd{x_3}} + \int {J_2 \dd{x_1} \dd{x_3}} + \int {J_3 \dd{x_1} \dd{x_2}}
+	\end{equation*}
+%
+Per ora è un'ipotesi, poi si vedrà che non solo è corretta, ma anche condizione necessaria e sufficiente. \\
+Associamo ora quanto visto ad una proprietà geometrica del versore normale che ha le stesse proprietà, prima in due e poi in tre dimensioni.
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.9]{./1.4 Equazioni di bilancio/1.4-4}
+		\centering
+		\caption{Vedere le normali alla superficie ed alle proiezioni}
+	\end{figure}
+%
+Delimitata una parte infinitesima $\dd{L}$ della linea $L$ di interesse, la si proietta sugli assi e si prendono le normali alla superficie ed alle proiezioni.
+%
+	\begin{equation*}
+		\begin{gathered}
+			\dd{x_2} = \dd{L} \cos{\alpha} = \dd{L} n_1 \quad \text{dato che} \\
+			n_1 = 1 \cos{\alpha} \quad \text{(nota: le componenti normali sono i coseni direttori)}
+		\end{gathered}
+	\end{equation*}
+Dove $\alpha$ è sia l'angolo che la superficie $\dd{L}$ forma con la proiezione $\dd{x}_2$ che l'angolo che la componente $n_1$  della normale forma con la normale.
+%
+Questo vale anche in 3D:
+%
+	\begin{equation*}
+		\begin{aligned}
+			\dd{x_1} \dd{x_2} = \dd{S} \abs{n_3} \\
+			\dd{x_2} \dd{x_3} = \dd{S} \abs{n_1} \\
+			\dd{x_1} \dd{x_3} = \dd{S} \abs{n_2}
+		\end{aligned}	
+	\end{equation*}
+%
+Notare che in questo caso si applica a superfici: per proiettare una superficie su un piano coordinato si moltiplica la superficie per l'asse ortogonale al piano (per ora in valore assoluto, in seguito ci si occuperà del segno). Difatti anche il flusso, oltre alla normale, può avere un segno.
+Applicando quanto appena visto il flusso diventa:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\int J (\uline{x}, \uline{n}, t) \dd{S} = \int { J_1 \dd{x_2} \dd{x_3}} + \int {J_2 \dd{x_1} \dd{x_3}} + \int {J_3 \dd{x_1} \dd{x_2}} = \\
+			=  \int{J_1 n_1 \dd{S}  +  J_2 n_2 \dd{S}  + J_3 n_3 \dd{S}} = \int{\uline{J} \vdot \uline{n} \dd{S}} \\
+		\end{gathered}
+	\end{equation*}
+%
+In pratica dato che il risultato corrisponde alla composizione lineare di un prodotto scalare, lo si esprime come tale. In questo abbiamo i vettori componenti di $J$ ed $n$:
+%
+	\begin{equation*}
+		\begin{gathered}
+			\uline{J} = \qty[J_1, J_2, J_3] \\
+			\uline{n} = \qty[n_1, n_2, n_3]
+		\end{gathered}
+	\end{equation*}
+%
+Un vettore fisico (non matematico nel senso di numeri casuali ordinati) è un insieme di numeri associati ad un riferimento: dato che il prodotto $\uline{J} \vdot \uline{n}$ è sempre lo stesso, cambiando sistema di riferimento le componenti di $\uline{J}$ ed $\uline{n}$ cambiano in modo che il prodotto scalare non vari, quindi variano allo stesso modo e $J_1$ $J_2$ e $J_3$ formano effettivamente un vettore fisico.
+
+%%SUBSECTION
+\subsection{Equazione generale di bilancio}
+Si affronta ora il problema del segno del flusso.
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.8]{./1.4 Equazioni di bilancio/1.4-5}
+		\centering
+		\caption{Normale e flussi}
+	\end{figure}
+%
+È logico che $J_{Destra-Sinistra} = - J_{Sinistra-Destra} $.
+
+Sul contorno del volume si definiscono normale interna ed esterna (uguali a meno del segno), proiettando $J$ sulla normale interna/esterna si ottiene quanto entra/esce dal volume di controllo.
+
+Nelle equazioni di bilancio a seconda di se si scelga ciò che entra/esce cambia il segno, in meccanica dei fluidi si sceglie la convenzione della normale esterna, quindi (da notare che si potrebbe scrivere l'equivalente con le grandezze in entrata, è solamente una convenzione):
+%
+	\begin{equation*}
+		\begin{aligned}
+			&\dv{t} \int {f \dd{V}} = - \int{\uline{J} \vdot \uline{n}_{ext} \dd{S}} \\
+			&\dv{t} \int {f \dd{V}} + \int{\uline{J} \vdot \uline{n}_{ext} \dd{S}} = 0 \quad \textbf{Equazione generale di bilancio}
+		\end{aligned}
+	\end{equation*}
+%
+
+%%SUBSECTION	
+\subsection{Equazione generale di bilancio con il tetraedro di Cauchy}
+Lo stesso risultato si può ottenere tramite il tetraedro di Cauchy.
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.8]{./1.4 Equazioni di bilancio/1.4-6}
+		\centering
+		\caption{Tetraedro di Cauchy ed una delle facce}
+	\end{figure}
+%
+L'integrale di superficie è dato dai pezzi relativi ai lati:
+%
+	\begin{equation*}
+		\dv{t} \int {f \dd{V}} = \int_1 {J \dd{S}} + \int_2{J \dd{S}} + \int_3 {J \dd{S}} + \int_4 {J \dd{S}}
+	\end{equation*}
+%
+Si immagini di prendere un tetraedro sempre più piccolo: le figure risultanti sono simili.
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.8]{./1.4 Equazioni di bilancio/1.4-7}
+		\centering
+		\caption{L $\to 0$}
+	\end{figure}
+%
+Facendo tendere a zero il lato ($L \to 0$), il volume $V$ diminuisce come $L^3$, la superficie come $L^2$:
+%
+	\begin{equation*}
+		V \sim L^3 \quad S \sim L^2
+	\end{equation*}
+%
+
+Per $L \to 0$ ad un certo punto $V$ è trascurabile rispetto ad $S$, al limite la somma dei volumi (l'integrale di volume) è nulla. 
+%
+	\begin{equation*}
+		\begin{gathered} 
+			\int_1 {J \dd{S}} + \int_2{J \dd{S}} + \int_3 {J \dd{S}} + \int_4 {J \dd{S}} = 0 \\
+			\int_4 {J \dd{S}} = -\int_1 {J \dd{S}} - \int_2{J \dd{S}} - \int_3 {J \dd{S}} \\
+			\int_4 {J \dd{S}} = - \int{\uline{J} \vdot \uline{n} \dd{S}}
+		\end{gathered}
+	\end{equation*}
+%
+Quindi per una superficie con una certa normale il flusso è la somma dei tre flussi attraverso le proiezioni sui piani coordinati. In pratica poiché si \uline{deve} scrivere come somma di componenti, si è ottenuto lo stesso risultato visto prima.
+%%SUBSECTION
+\subsection{Equazione di bilancio per la massa}
+Ad esempio si veda il bilancio del flusso di massa su una superficie \uline{chiusa} (è importante, il flusso ha senso anche per superfici aperte, come spiegato in seguito, ma il bilancio non è nullo. Una superficie chiusa è il contorno di un volume, non ha buchi).
+Per evidenziare che l'integrale è su tutto il contorno si utilizza il simbolo di integrale su superficie chiusa:
+%
+	\begin{equation*}
+		\dv{t} \int {\rho \dd{V}} + \oint {\uline{J}_M \vdot \uline{n} \dd{S}} = 0
+	\end{equation*}
+%
+Nel caso di una superficie solida, come la parete di un contenitore, $\uline{J}_M = \uline{0}$.\\
+Occorre ricordare che:
+	\begin{equation*}
+		\uline{n} \dd{S} = \qty[\pm \dd{x_2} \dd{x_3},\pm \dd{x_1} \dd{x_3},\pm \dd{x_1} \dd{x_2}, ]
+	\end{equation*}
+%
+cioè le componenti sono elementi di superficie sui tre piani (le proiezioni sui piani coordinati), $\uline{n} \dd{S}$ è più semplice di $\uline{n}$ e $\dd{S}$ considerati separatamente. I segni dipendono dall'orientazione della normale rispetto a ciascun piano e vanno determinati caso per caso.
+Questo passaggio non è superfluo, dato che semplifica lo svolgimento degli integrali.
+%
+\subsection{Velocità}
+Nella meccanica dei fluidi le grandezze fondamentali sono $\rho, e, \uline{q}$, da queste si definiscono le altre come grandezze derivate. \\
+Ad esempio, dividendo la densità di quantità di moto per la densità di massa si ottiene:
+	\begin{equation*}
+		\frac{\uline{q}}{\rho} = \frac{\qty[ \si{kg.m/s./m^3}] }{\qty[\si{kg /m^3}]} = \qty[\si{m/s}] = \uline{v}
+	\end{equation*}
+Dimensionalmente è una velocità, si è in questo modo definita la velocità di un fluido. \\
+Vale anche l'inverso:
+	\begin{equation*}
+		\uline{q} = \rho \uline{v}
+	\end{equation*}
+%
+A paragone nel caso discreto si ha:
+	\begin{equation*}
+		\begin{gathered}
+			\uline{Q} = \sum m_i \uline{v}_i \quad ; \quad M = \sum m_i \\
+			\frac{ \uline{Q} }{ M } = \frac{ \sum{ m_i \uline{v}_i } }{ \sum m_i } = \text{velocità del baricentro}
+		\end{gathered}
+	\end{equation*}
+Cioè nel caso discreto tramite una media pesata si trova la velocità del baricentro, nel caso continuo la velocità del fluido è la velocità del baricentro delle molecole: vista così la definizione è meno stramba di quanto non sembri.
+%SUBSECTION	
+\subsection{Equazione di bilancio per l'energia}
+Solamente per riferimento, l'equazione generale di bilancio particolarizzata per l'energia è:
+	\begin{equation*}
+		\dv{t} \int_V e \dd{V} + \oint \uline{J}_E \vdot \uline{n} \dd{S} = 0
+	\end{equation*}
+%
+\subsection{Equazione di bilancio per la quantità di moto}
+Occorre fare due premesse, la prima è che l'integrale di un vettore su di un volume è a sua volta un vettore di cui ciascuna componente è l'integrale della componente dell'integrando sul volume.
+La seconda è che nel caso continuo la quantità di moto è $\uline{Q} = \int_V \uline{q} \dd{V} $ (l'equivalente nel caso discreto sarebbe $\uline{Q} = \sum m_i \uline{v}_i$).
+
+Da questo consegue che nel caso di una variazione della quantità di moto si avrà $\dv{t} \int_V \uline{q} \dd{V}$, cui sommare un termine relativo al flusso.
+Dato che la quantità di moto è un vettore, questo oggetto sarà più complicato che nei casi precedenti, ciò nonostante si ragiona riconducendosi a quanto visto prima.
+
+Considerando una componente alla volta, per ognuna di esse si applica il ragionamento visto nel caso della massa:
+	\begin{equation*}
+		\dv{t} \int q_i \dd{V} + \int J_{Qi} \vdot \uline{n} \dd{S} = 0
+	\end{equation*}
+Questa equazione andrà ripetuta una volta per componente ($q_1, q_2, q_3$), pertanto $i \quad 1 \rightarrow 3$.
+Applicando anche la notazione di Einstein si avrà che:
+	\begin{equation*}
+		\dv{t} \int q_i \dd{V} + \int J_{Qi} \vdot \uline{n} \dd{S} = \dv{t} \int q_i \dd{V} + \oint J_{Qij} n_j \dd{S} = 0
+	\end{equation*}
+È sempre la stessa equazione di bilancio, è cambiata solamente la notazione. \\
+Notare che $J_{Qij}$ è un tensore\footnote{non una matrice, dato che le sue componenti variano con il variare del sistema di riferimento} di dimensioni $3\times3$ ($i, j \quad 1 \to 3$).\\
+Per la convenzione della normale esterna, si vede la quantità di moto \textit{in uscita}, pertanto il termine $\dv{t} \int q_i \dd{V}$ è negativo e misura la forza esercitata \textit{sul} volume di controllo.
+%
+%%SUBSECTION
+\subsection{Integrale di flusso su superficie non chiusa}
+%
+	\begin{figure}[ht]
+		\includegraphics[scale=0.8]{./1.4 Equazioni di bilancio/1.4-8}
+		\centering
+		\caption{L è la lunghezza considerata}
+	\end{figure}
+%
+Ha senso considerare un integrale di flusso solamente su parte della superficie del volume di controllo, è un integrale aperto che quantifica una grandezza che attraversa quella superficie, ad esempio la massa che attraversa $S_1$: $\int_{S_1} \uline{J}_M \vdot \uline{n} \dd{S}$
+\subsection*{Bibliografia 1.4}
+\cite[Cap.\ 1.2, 1.3, 1.6]{LuchiniQuadrio}\\
+\cite[Cap.\ 2.5]{PnueliGutfinger}
