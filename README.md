@@ -11,3 +11,9 @@ I sorgenti LaTeX/IPE, i file da essi generati, il testo e le immagini incluse so
 Una copia della licenza è inclusa nella repository stessa.
 
 [cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+## Download
+Per scaricare gli appunti, vedere nella sezione [Release][release-link], oppure [cliccare qui per il download diretto del PDF dell'ultima versione][latest-release].
+
+[release-link]: https://github.com/f-dinucci/appuntiMeccanicaFluidi/releases
+[latest-release]: https://github.com/f-dinucci/appuntiMeccanicaFluidi/releases/download/release/Appunti.di.Meccanica.dei.Fluidi.2021-04-21.pdf
