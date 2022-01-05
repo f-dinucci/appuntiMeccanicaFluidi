@@ -1,0 +1,65 @@
+% La larghezza è impostata alla metà della pagina per sfruttare copertina fronte/retro per ottenere due colonne
+% A4 210x297 mm
+\documentclass[coverheight=297mm,coverwidth=105mm,spinewidth=0mm,bleedwidth=0mm,marklength=0mm]{bookcover}
+
+% Collegamenti testuali e grafica
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tikz}
+
+% Setup collegamenti ipertestuali e proprietà del PDF
+\hypersetup{
+    colorlinks=false,
+    hidelinks,
+    pdftitle={Appunti di Meccanica dei Fluidi},
+    pdfauthor={Francesco Di Nucci},
+    pdfpagemode=UseOutlines,
+    pdfdisplaydoctitle =true
+}
+
+% BEGIN
+\begin{document}
+\begin{bookcover}
+
+% Background Picture
+\begin{bookcoverelement}{picture}{bg whole without flaps}
+    ./CoverImage/CoverImage.jpg
+\end{bookcoverelement}
+
+% Grey Rectangles
+% First TIKZ origin is set, then ++ tells increments starting from the origin
+\begin{bookcoverelement}{tikz}{front}
+    \fill[opacity=0.85,black!50] (4mm,230mm) rectangle ++(97mm,-35mm) ;
+    \fill[opacity=0.85,black!50] (4mm,30mm) rectangle ++(97mm,-14mm);
+\end{bookcoverelement}
+
+% Text boxes - Position [left, down, right, up]
+% Front only to use it as a column
+% Top Text #1
+\begin{bookcoverelement}{normal}{front}[5mm, ,5mm,70mm]
+    \centering
+    \huge
+    Appunti di Meccanica dei Fluidi\\
+    Edizione 2022-01-xx
+\end{bookcoverelement}
+
+% Top Text #2
+\begin{bookcoverelement}{normal}{front}[5mm, ,5mm,90mm]
+    \centering
+    \Large
+    \textit{Appunti non ufficiali\\
+    Realizzati da Francesco Di Nucci}
+\end{bookcoverelement}  
+
+% Bottom
+\begin{bookcoverelement}{normal}{front}[5mm,10mm,5mm,270mm]
+    \centering
+    \large
+    Licenza \href{https://creativecommons.org/licenses/by-sa/4.0/}{ \texttt{CC BY-SA 4.0} }\\
+    \normalsize
+    \url{https://github.com/f-dinucci/appuntiMeccanicaFluidi}
+\end{bookcoverelement}
+
+\end{bookcover}
+\end{document} 
+% END

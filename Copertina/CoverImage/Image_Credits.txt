@@ -1,0 +1,6 @@
+Cover Image Credits
+
+The images "CoverImage.jpg" and "CoverImage_HD.jpg" have been derived from "Diffusion with ink.jpg" (https://commons.wikimedia.org/wiki/File:Diffusion_with_ink.jpg) by Zvonimir Lončarić.
+The original image has been released under "Creative Commons Attribution-ShareAlike 4.0 International" license (https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+The modified images have been made by converting to black&white, cropping and resizing the original image.
+The modified images are released under the same license of the original image (Creative Commons Attribution-ShareAlike 4.0 International)
